@@ -1,0 +1,19 @@
+:root {
+    --textColor: #E2E4F3;
+    --textColor2: #A8B0CF;
+    --color1: #1A1B26;
+    --color2: #24283B;
+    --color3: #565F89;
+    --accent1: #7AA2F7;
+    --accent2: #BB9AF7;
+}
+
+/* Base Styles */
+body {
+    background-color: var(--color1);
+    color: var(--textColor);
+    min-width: 600px;
+    font-family: Arial, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+} 

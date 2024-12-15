@@ -1,0 +1,113 @@
+{
+  "name": "abhay chatbot",
+  "description": "Multiple Chatbots: Ask multiple AI Assistants simultaneously!",
+  "version": "0.1.6",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "commands": {
+    "_open_popup": {
+      "description": "Open Dialog",
+      "suggested_key": {
+        "default": "Alt+Q",
+        "windows": "Alt+Q",
+        "mac": "Alt+Q"
+      }
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png",
+    "1024": "icons/icon1024.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.chatgpt.com/*",
+        "*://*.openai.com/*"
+      ],
+      "js": ["ai-chatgpt.js"]
+    },
+    {
+      "matches": [
+        "*://*.claude.ai/*",
+        "*://*.anthropic.com/*"
+      ],
+      "js": ["ai-claude.js"]
+    },
+    {
+      "matches": [
+        "*://*.gemini.google.com/*"
+      ],
+      "js": ["ai-gemini.js"]
+    },
+    {
+      "matches": [
+        "*://*.chat.mistral.ai/*"
+      ],
+      "js": ["ai-mistral.js"]
+    },
+    {
+      "matches": [
+        "*://*.perplexity.ai/*"
+      ],
+      "js": ["ai-perplexity.js"]
+    },
+    {
+      "matches": [
+        "*://*.bing.com/*",
+        "*://*.copilot.microsoft.com/*",
+        "*://copilot.microsoft.com/*"
+      ],
+      "js": ["ai-bing.js"]
+    },
+    {
+      "matches": [
+        "*://*.deepseek.com/*"
+      ],
+      "js": ["ai-deepseek.js"]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "scripting",
+    "tabGroups",
+    "tabs",
+    "windows"
+  ],
+  "host_permissions": [
+    "*://*.chatgpt.com/*",
+    "*://*.openai.com/*",
+    "*://*.claude.ai/*",
+    "*://*.anthropic.com/*",
+    "*://*.gemini.google.com/*",
+    "*://*.google.com/*",
+    "*://*.chat.mistral.ai/*",
+    "*://*.perplexity.ai/*",
+    "*://*.bing.com/*",
+    "*://*.copilot.microsoft.com/*",
+    "*://*.deepseek.com/*"
+  ],
+  "web_accessible_resources": [{
+    "resources": ["content.js"],
+    "matches": [
+      "*://*.chatgpt.com/*",
+      "*://*.claude.ai/*",
+      "*://*.gemini.google.com/*",
+      "*://*.chat.mistral.ai/*",
+      "*://*.perplexity.ai/*",
+      "*://*.bing.com/*",
+      "*://*.deepseek.com/*"
+    ]
+  }, {
+    "resources": ["ai-toggle.js"],
+    "matches": ["<all_urls>"]
+  }],
+  "manifest_version": 3
+}

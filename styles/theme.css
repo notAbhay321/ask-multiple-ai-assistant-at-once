@@ -1,0 +1,35 @@
+/* Dark Theme (Default) */
+:root {
+    --textColor: #E2E4F3;
+    --textColor2: #A8B0CF;
+    --color1: #1A1B26;
+    --color2: #24283B;
+    --color3: #565F89;
+    --accent1: #7AA2F7;
+    --accent2: #BB9AF7;
+    --error: #e74c3c;
+    --success: #2ecc71;
+    --warning: #f1c40f;
+}
+
+/* Light Theme */
+[data-theme="light"] {
+    --textColor: #2D3748;
+    --textColor2: #4A5568;
+    --color1: #FFFFFF;
+    --color2: #F7FAFC;
+    --color3: #E2E8F0;
+    --accent1: #4299E1;
+    --accent2: #9F7AEA;
+}
+
+/* High Contrast Theme */
+[data-theme="high-contrast"] {
+    --textColor: #FFFFFF;
+    --textColor2: #E2E4F3;
+    --color1: #000000;
+    --color2: #1A1A1A;
+    --color3: #333333;
+    --accent1: #FFD700;
+    --accent2: #FF69B4;
+} 

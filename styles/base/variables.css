@@ -1,0 +1,38 @@
+:root {
+    /* Colors */
+    --textColor: #E2E4F3;
+    --textColor2: #A8B0CF;
+    --color1: #1A1B26;
+    --color2: #24283B;
+    --color3: #565F89;
+    --accent1: #7AA2F7;
+    --accent2: #BB9AF7;
+
+    /* Status Colors */
+    --error: #e74c3c;
+    --success: #2ecc71;
+    --warning: #f1c40f;
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-full: 9999px;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* Z-index layers */
+    --z-modal: 1000;
+    --z-popup: 1100;
+    --z-tooltip: 1200;
+} 

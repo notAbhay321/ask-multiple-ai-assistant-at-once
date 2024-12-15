@@ -1,0 +1,204 @@
+/* Buttons */
+.btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--accent1);
+    color: var(--textColor);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--color3);
+    color: var(--textColor);
+}
+
+/* Chat Buttons */
+.chat_button {
+    padding: 8px 16px;
+    border: 1px solid var(--color3);
+    transition: all 0.2s ease;
+}
+
+.chat_button:hover {
+    background: #fff;
+    color: #000;
+}
+
+.chat_button.disabled {
+    background: #e74c3c;
+    cursor: not-allowed;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--color2);
+    border-radius: 8px;
+    border: 1px solid var(--color3);
+    max-width: 400px;
+    width: 90%;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid var(--color3);
+}
+
+.modal-content {
+    padding: 15px;
+}
+
+.modal-footer {
+    padding: 15px;
+    border-top: 1px solid var(--color3);
+}
+
+/* Session List */
+.session-list {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid var(--color3);
+    border-radius: 4px;
+}
+
+.session-item {
+    padding: 10px;
+    border-bottom: 1px solid var(--color3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Settings Panel Styles */
+.settings-section {
+    background: var(--color2);
+    border: 1px solid var(--color3);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.section-header {
+    padding: 15px 20px;
+    background: var(--color2);
+    border-bottom: 1px solid var(--color3);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.section-header:hover {
+    background: var(--color3);
+}
+
+.section-header h3 {
+    margin: 0;
+    font-size: 1.1em;
+    color: var(--accent1);
+    font-weight: 500;
+}
+
+.toggle-icon {
+    color: var(--textColor);
+    transition: transform 0.3s ease;
+}
+
+.settings-section.collapsed .toggle-icon {
+    transform: rotate(-90deg);
+}
+
+.section-content {
+    padding: 20px;
+    background: var(--color2);
+    transition: all 0.3s ease;
+}
+
+.settings-section.collapsed .section-content {
+    display: none;
+}
+
+/* Settings Options */
+.settings-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+}
+
+.setting-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+}
+
+.setting-item span {
+    color: var(--textColor);
+    font-size: 0.95em;
+}
+
+/* Ask Container Styles */
+.ask-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Toggle Container Styles */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.toggle-container input[type="checkbox"] {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    appearance: none;
+    background: var(--color3);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-container input[type="checkbox"]::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: var(--textColor);
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: all 0.3s ease;
+}
+
+.toggle-container input[type="checkbox"]:checked {
+    background: var(--accent1);
+}
+
+.toggle-container input[type="checkbox"]:checked::before {
+    left: 22px;
+}
+
+.toggle-label {
+    color: var(--textColor);
+    font-size: 0.9em;
+} 

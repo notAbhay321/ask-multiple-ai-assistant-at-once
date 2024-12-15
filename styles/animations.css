@@ -1,0 +1,39 @@
+/* Transitions */
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 200ms ease-in;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 200ms ease-out;
+}
+
+/* Collapsible Animation */
+.collapse-enter {
+    max-height: 0;
+    overflow: hidden;
+}
+
+.collapse-enter-active {
+    max-height: 500px;
+    transition: max-height 300ms ease-in;
+}
+
+/* Button Animations */
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+} 

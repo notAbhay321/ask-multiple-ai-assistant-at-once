@@ -1,0 +1,13 @@
+.model-button {
+    background-color: #e74c3c; /* Red color for unselected state */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.model-button.selected {
+    background-color: #2ecc71; /* Green color for selected state */
+} 

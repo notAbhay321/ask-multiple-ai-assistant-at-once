@@ -1,0 +1,53 @@
+/* Base Button */
+.btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-weight: 500;
+    border: none;
+}
+
+/* Button Variants */
+.btn-primary {
+    background: var(--accent1);
+    color: var(--textColor);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--color3);
+    color: var(--textColor);
+}
+
+/* Button States */
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Chat Buttons */
+.chat-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--color3);
+    transition: all var(--transition-fast);
+    background: var(--color2);
+}
+
+.chat-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+.chat-btn.disabled {
+    background: var(--error);
+} 

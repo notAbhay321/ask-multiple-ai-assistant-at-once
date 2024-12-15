@@ -1,0 +1,52 @@
+/* Main Layout */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Sections */
+.assistant-buttons-section {
+    width: 100%;
+    padding: 15px;
+    background: var(--color2);
+    border-bottom: 1px solid var(--color3);
+}
+
+.preprompt-section,
+.category-section {
+    padding: 15px;
+    background: var(--color2);
+    border-radius: 4px;
+}
+
+.bottom-section {
+    width: 100%;
+    padding: 20px;
+    background: var(--color2);
+    border-top: 1px solid var(--color3);
+    margin-top: 20px;
+}
+
+/* Settings Sections */
+.settings-section {
+    margin-bottom: 10px;
+    border: 1px solid var(--color3);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.section-header {
+    padding: 10px 15px;
+    background: var(--color2);
+    cursor: pointer;
+}
+
+.section-content {
+    padding: 15px;
+    transition: all 0.3s ease;
+} 

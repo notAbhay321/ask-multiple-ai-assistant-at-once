@@ -1,0 +1,77 @@
+/* Modal Base */
+.modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Modal Container */
+.modal-container {
+    background: var(--color1);
+    border-radius: 8px;
+    border: 1px solid var(--color3);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+/* Modal Header */
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--color3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: var(--accent1);
+    font-size: 1.2em;
+}
+
+/* Close Button */
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: var(--color3);
+    color: var(--textColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    background: var(--accent1);
+    transform: scale(1.1);
+}
+
+/* Modal Content */
+.modal-content {
+    padding: 15px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+/* Modal Footer */
+.modal-footer {
+    padding: 15px;
+    border-top: 1px solid var(--color3);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+} 

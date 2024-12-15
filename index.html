@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Multiple AI Assistants</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/utilities.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/forms.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/modal.css">
+    <link rel="stylesheet" href="styles/session.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="icons/icon_dark-48x48.png">
+    <!-- HTML Meta Tags -->
+    <title>Multiple AI Assistants</title>
+    <meta name="description" content="You can prompt multiple AI Chatbots at once.">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://far-se.github.io/Multiple-Chatbots/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Multiple AI Assistants">
+    <meta property="og:description" content="You can prompt multiple AI Chatbots at once.">
+    <meta property="og:image" content="https://far-se.github.io/Multiple-Chatbots/preview.png">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="far-se.github.io">
+    <meta property="twitter:url" content="https://far-se.github.io/Multiple-Chatbots/">
+    <meta name="twitter:title" content="Multiple AI Assistants">
+    <meta name="twitter:description" content="You can prompt multiple AI Chatbots at once.">
+    <meta name="twitter:image" content="https://far-se.github.io/Multiple-Chatbots/preview.png">
+
+    <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+</head>
+
+<body>
+    <main class="flex_center main">
+        <div class="pico" id="mainBox">
+            <!-- AI Assistant Buttons Section (Moved to top) -->
+            <section class="assistant-buttons-section">
+                <h3>AI Assistants</h3>
+                <div id="chatButtons">
+                    <button class="model-button" value="ChatGPT">ChatGPT</button>
+                    <button class="model-button" value="Claude">Claude</button>
+                    <button class="model-button" value="Gemini">Gemini</button>
+                    <button class="model-button" value="Mistral">Mistral</button>
+                    <button class="model-button" value="Perplexity">Perplexity</button>
+                    <button class="model-button" value="Bing">Bing</button>
+                    <button class="model-button" value="DeepSeek">DeepSeek</button>
+                </div>
+            </section>
+
+            <!-- Main Content Section -->
+            <section class="main-content">
+                <!-- Pre-prompts Section -->
+                <div class="preprompt-section">
+                    <h3>Pre-prompts</h3>
+                    <div class="preprompt-buttons">
+                        <!-- Pre-prompt buttons will be added here by JavaScript -->
+                        <button class="outline add-prompt-button" id="addPrompt">
+                            <span>+</span>
+                        </button>
+                    </div>
+                    <p class="info"><span data-tooltip="=">Info</span></p>
+                </div>
+
+                <!-- Category/Topics Section -->
+                <div class="category-section">
+                    <h3>Question Category</h3>
+                    <div class="category-buttons">
+                        <!-- Category buttons will be added here by JavaScript -->
+                        <button class="outline category-button" data-category="Programming">Programming</button>
+                        <button class="outline category-button" data-category="Design">Design</button>
+                        <button class="outline category-button" data-category="Database">Database</button>
+                        <button class="outline add-category-button" id="addCategory">
+                            <span>+</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mainContainer">
+                    <article class="shadow1">
+                        <textarea autofocus name="query" id="query" placeholder="Ask AI Assistants..."
+                            aria-label="Ask AI Assistants..." cols="50"></textarea>
+                    </article>
+                </div>
+
+                <div class="websiteVisible">
+                    <p class="small" id="geminiInfo" style="display:none; zoom:0.6">
+                        <a href="https://gist.github.com/Far-Se/565b4668886732fec16b8b41afdd3048" target="_blank">
+                            Gemini Tampermonkey Script
+                        </a>
+                    </p>
+                </div>
+            </section>
+
+            <!-- Bottom Ask Button Section -->
+            <section class="bottom-section">
+                <div class="ask-container">
+                    <button id="askButton" class="mainAsk btn btn-primary">Ask AI Assistants</button>
+                    <label class="toggle-container">
+                        <input type="checkbox" id="sameChatToggle" />
+                        <span class="toggle-label">Continue in Same Chat</span>
+                    </label>
+                </div>
+                <div class="button-group">
+                    <button id="startSession" class="primary-button">Start Session</button>
+                    <button id="allAiLoginPanel" class="primary-button">All AI Login Panel</button>
+                    <button id="settingsButton" class="primary-button settings-button">
+                        <span>⚙️ Settings</span>
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Edit Modal -->
+    <div class="pico">
+        <dialog id="edit-modal">
+            <article>
+                <header>
+                    <p><strong>✒ Edit Predefined Prompt</strong></p>
+                    <button aria-label="Close" class="closeEvent" rel="prev" data-target="edit-modal"></button>
+                </header>
+                <div class="modal-content">
+                    <div class="input-group">
+                        <label for="promptName">Name:</label>
+                        <input type="text" id="promptName" name="promptName" placeholder="Prompt Name" aria-label="Prompt Name" autocomplete="off">
+                    </div>
+                    <div class="input-group">
+                        <label for="prompt">Prompt:</label>
+                        <textarea name="prompt" id="prompt" placeholder="You are a very smart AI Assistant and..." aria-label="Prompt Placehoder"></textarea>
+                    </div>
+                </div>
+                <footer class="modal-actions">
+                    <div class="button-group">
+                        <button class="outline secondary" id="deletePrompt" data-target="edit-modal">Delete</button>
+                        <div class="right-buttons">
+                            <button class="outline secondary closeEvent" data-target="edit-modal">Cancel</button>
+                            <button class="primary" id="savePrompt" data-target="edit-modal">Save</button>
+                        </div>
+                    </div>
+                </footer>
+            </article>
+        </dialog>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="pico">
+        <dialog id="settings-modal">
+            <article>
+                <header>
+                    <p><strong>⚙️ Settings</strong></p>
+                    <button class="modal-close-btn" aria-label="Close">×</button>
+                </header>
+                <div class="settings-content">
+                    <div class="settings-section collapsible">
+                        <div class="section-header">
+                            <h3>General Settings</h3>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="section-content">
+                            <div class="settings-options">
+                                <label class="setting-item">
+                                    <input type="checkbox" name="ctrlEnter" id="ctrlEnter" />
+                                    <span>Submit by Ctrl + Enter</span>
+                                </label>
+                                <label class="setting-item">
+                                    <input type="checkbox" name="useSameChat" id="useSameChat" />
+                                    <span>Continue in Same Chat</span>
+                                </label>
+                                <label class="setting-item extVisisble">
+                                    <input type="checkbox" name="compactTheme" id="compactTheme" />
+                                    <span>Compact Theme</span>
+                                </label>
+                                <label class="setting-item">
+                                    <input type="checkbox" id="darkModeToggle" name="darkMode" />
+                                    <span>Dark Mode</span>
+                                </label>
+                                <label class="setting-item extVisisble">
+                                    <span>Shortcut:</span>
+                                    <a data-tooltip="Change Shortcut" id="shortcutEditor" href="#">Alt+Q</a>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-section collapsible">
+                        <div class="section-header">
+                            <h3>Bot Management</h3>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="section-content">
+                            <div id="botList"></div>
+                            <div class="botListActions">
+                                <button id="resetBots" class="outline">Reset Bots To Default</button>
+                                <button id="addNewBot" class="primary">Add New Bot</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-section collapsible">
+                        <div class="section-header">
+                            <h3>User Guide</h3>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="section-content">
+                            <p>Welcome to the User Guide for Multiple AI Assistants. Here are some tips to help you get started:</p>
+                            <ul>
+                                <li>Use the predefined prompts to quickly get started with common queries.</li>
+                                <li>Customize your AI assistants by enabling or disabling them in the Bot Management section.</li>
+                                <li>Save your session by clicking the "Start Session" button and entering a session name.</li>
+                                <li>Access your query history in the Query History section.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Add new Session Management section -->
+                    <div class="settings-section collapsible">
+                        <div class="section-header">
+                            <h3>Session Management</h3>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="section-content">
+                            <div class="session-controls">
+                                <!-- Create New Session -->
+                                <div class="input-group">
+                                    <label for="sessionName">Session Name:</label>
+                                    <input type="text" id="sessionName" placeholder="e.g., JavaScript Tutorial 2024-01-20">
+                                </div>
+                                <div class="input-group">
+                                    <label for="sessionCategory">Category:</label>
+                                    <select id="sessionCategory">
+                                        <option value="">Select Category</option>
+                                        <option value="learning">Learning</option>
+                                        <option value="project">Project</option>
+                                        <option value="meeting">Meeting</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <button class="primary" id="createSession">Create New Session</button>
+                            </div>
+                            
+                            <!-- Export Options -->
+                            <div class="export-controls">
+                                <h4>Export Options</h4>
+                                <div class="button-group">
+                                    <button class="outline" id="exportTxt">Export as TXT</button>
+                                    <button class="outline" id="exportPdf">Export as PDF</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Session History -->
+                            <div class="session-history">
+                                <h4>Recent Sessions</h4>
+                                <div id="sessionList" class="session-list">
+                                    <!-- Sessions will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <button class="primary" id="saveSettings" data-target="settings-modal">Save Changes</button>
+                    <div class="made-with-love">Made with ❤️ by not_abhay</div>
+                </footer>
+            </article>
+        </dialog>
+    </div>
+
+    <!-- Add Prompt Modal -->
+    <div class="pico">
+        <dialog id="add-prompt-modal">
+            <article>
+                <header>
+                    <p><strong>Add Prompt</strong></p>
+                    <button class="modal-close-btn" aria-label="Close">×</button>
+                </header>
+                <div class="modal-content">
+                    <div class="input-group">
+                        <input type="text" id="newPromptTitle" placeholder="Title" autocomplete="off">
+                    </div>
+                    <div class="input-group">
+                        <textarea id="newPromptText" placeholder="Enter prompt instructions..." rows="3"></textarea>
+                    </div>
+                </div>
+                <footer class="modal-actions">
+                    <div class="button-group">
+                        <button class="primary" id="saveNewPrompt">Save</button>
+                    </div>
+                </footer>
+            </article>
+        </dialog>
+    </div>
+
+    <script src="pico.modal.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
