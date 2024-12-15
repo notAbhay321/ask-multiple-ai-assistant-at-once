@@ -48,8 +48,3 @@ Contributions are welcome! If you have suggestions for improvements or new featu
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Thanks to the developers of the AI models integrated into this extension.
-- Special thanks to the open-source community for their contributions and support.
